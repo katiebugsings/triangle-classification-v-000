@@ -12,10 +12,15 @@ class Triangle
       :equilateral
     elsif side_one == side_two || side_two == side_three || side_one == side_three
       :isosceles
-    else 
+    else
       :scalene
     end
   end
+
+  def validation
+  raise TriangleError if(side_one > side_two + side_three || side_two > side_one + side_three || side_three > side_one + side_two) 
+end
+
 
   class TriangleError < StandardError
   side_one > side_two + side_three
